@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHRUVIL SANKHE </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+
+          .cart-button {
+            position: relative;
+            padding: 10px;
+            width: 200px;
+            height: 60px;
+            border: 0;
+            border-radius: 5px;
+            background-color: #00fffc;
+            outline: none;
+            cursor: pointer;
+            color: #000;
+            transition: .3s ease-in-out;
+            overflow: hidden;
+            font-weight: 700;
+          }
+
+          .cart-button:hover {
+            background-color: #00fffc;
+          }
+          .cart-button:active {
+            transform: scale(.9);
+          }
+
+          .cart-button .fa-cart-shopping {
+            position: absolute;
+            z-index: 2;
+            top: 50%; left: -10%;
+            font-size: 2em;
+            transform: translate(-50%, -50%);
+          }
+          .cart-button .fa-box {
+            position: absolute;
+            z-index: 3;
+            top: -20%; left: 52%;
+            font-size: 1.2em;
+            transform: translate(
+                -50%, -50%);
+            color: gold;
+          }
+
+        .cart-button span {
+            position: absolute;
+            z-index: 3;
+            left: 50%;
+            top: 50%;
+            font-size: 1.3em;
+            color: #000;
+            transform: translate(-50%, -50%);
+        }
+
+        .cart-button span
+        .add-to-cart {
+            opacity: 1;
+        }
+
+        .cart-button span.added {
+            opacity: 0;
+        }
+
+        .cart-button.clicked .fa-cart-shopping {
+            animation: truck 2s ease-in-out forwards;
+        }
+
+        .cart-button.clicked .fa-box {
+            animation: box 2s ease-in-out forwards;
+        }
+
+        .cart-button.clicked span.add-to-cart {
+            animation: txt1 2s ease-in-out forwards;
+        }
+
+        .cart-button.clicked span.added {
+            animation: txt2 2s ease-in-out forwards;
+        }
+
+        @keyframes truck {
+            0% { left: -10%; }
+            40%,
+            55% { left: 50%; }
+            100% { left: 110%; }
+        }
+
+        @keyframes box {
+            0%,
+            40% { top: -20%; left: -5%; }
+            55% { top: 37%; left: 52%; }
+            100% { top: 37%; left: 110%; } }
+
+        @keyframes txt1 {
+            0% { opacity: 1; }
+            20%,
+            100% { opacity: 0; } }
+
+        @keyframes txt2 {
+            0%,
+            80% { opacity: 0; }
+            100% { opacity: 1; } }
+
+            
+        /* -- External Social Link CSS Styles -- */
+
+        #source-link {
+            top: 120px;
+        }
+
+        #source-link>i {
+            color: rgb(94, 106, 210);
+        }
+
+        #yt-link {
+            top: 65px;
+        }
+
+        #yt-link>i {
+            color: rgb(219, 31, 106);
+
+        }
+
+        #Fund-link {
+            top: 10px;
+        }
+
+        #Fund-link>i {
+            color: rgb(255, 251, 0);
+
+        }
+
+        .meta-link {
+            align-items: center;
+            backdrop-filter: blur(3px);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: inline-flex;
+            gap: 5px;
+            left: 10px;
+            padding: 10px 20px;
+            position: fixed;
+            text-decoration: none;
+            transition: background-color 600ms, border-color 600ms;
+            z-index: 10000;
+        }
+
+        .meta-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .meta-link>i,
+        .meta-link>span {
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .meta-link>span {
+            color: white;
+            font-family: "Rubik", sans-serif;
+            transition: color 600ms;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <button class="cart-button">
+        <span class="add-to-cart">Add to cart</span>
+        <span class="added"> <i class="fa-solid fa-circle-check"></i> Done </span>
+        <i class="fa-solid fa-cart-shopping"></i>   
+        <i class="fas fa-box"></i>
+    </button>
+  <script type="text/javascript">
+     const cartButtons = document.querySelectorAll('.cart-button');
+    
+        cartButtons.forEach(button => {
+            button.addEventListener('click', cartClick);
+        });
+    
+        function cartClick() {
+            let button = this;
+            button.classList.add('clicked');
+    
+            // Reset button position after 3 seconds
+            setTimeout(() => {
+                button.classList.remove('clicked');
+            }, 2000); // 3000 milliseconds = 3 seconds
+        }
+    </script>
+</body>
+</html>
